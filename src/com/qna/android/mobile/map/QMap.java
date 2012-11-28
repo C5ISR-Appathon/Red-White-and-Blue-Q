@@ -1,10 +1,11 @@
 package com.qna.android.mobile.map;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.Menu;
 
-public class QMap extends Activity {
+import com.google.android.maps.MapActivity;
+
+public class QMap extends MapActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +18,12 @@ public class QMap extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.activity_qmap, menu);
 		return true;
+	}
+
+	@Override
+	protected boolean isRouteDisplayed() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
