@@ -10,4 +10,6 @@
         android:layout_height="match_parent"
         android:apiKey="01_qGkqm9DGUoc-Zjk1ahU72viWEzj3kcGL9xrg"
         android:clickable="true" />
+   
+   
 </RelativeLayout>

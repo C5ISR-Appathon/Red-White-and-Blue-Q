@@ -1,14 +1,21 @@
 package com.qna.android.mobile.map;
 
+import java.util.List;
+
 import android.os.Bundle;
 import android.view.Menu;
 
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapView;
+import com.google.android.maps.Overlay;
 
 public class QMap extends MapActivity {
 
+	
 	private MapView mapView;
+	private List<Overlay> mapViewOverlays;
+	private QOverlay IEDOverlay;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +23,9 @@ public class QMap extends MapActivity {
 		setContentView(R.layout.activity_qmap);
 		mapView = (MapView)findViewById(R.id.mapview);
 		mapView.setBuiltInZoomControls(true);
+		mapViewOverlays = mapView.getOverlays();
+		IEDOverlay= new QOverlay((Drawable)findViewById(R.drawable.bomb_info));
+		
 	}
 
 	@Override
