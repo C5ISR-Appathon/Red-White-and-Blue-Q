@@ -2,30 +2,42 @@ package com.qna.android.mobile.map;
 
 import java.util.List;
 
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.GestureDetector;
+import android.view.GestureDetector.OnGestureListener;
 import android.view.Menu;
+import android.view.MotionEvent;
 
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 
-public class QMap extends MapActivity {
+public class QMap extends MapActivity implements OnGestureListener {
 
-	
 	private MapView mapView;
 	private List<Overlay> mapViewOverlays;
 	private QOverlay IEDOverlay;
-	
-	
+	private QOverlay SniperOverlay;
+	private Resources resources = getResources();
+
+	private GestureDetector gd;
+
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_qmap);
-		mapView = (MapView)findViewById(R.id.mapview);
+		gd = new GestureDetector(this);
+
+		mapView = (MapView) findViewById(R.id.mapview);
 		mapView.setBuiltInZoomControls(true);
 		mapViewOverlays = mapView.getOverlays();
-		IEDOverlay= new QOverlay((Drawable)findViewById(R.drawable.bomb_info));
-		
+		IEDOverlay = new QOverlay(resources.getDrawable(R.drawable.bomb_info));
+		SniperOverlay = new QOverlay(
+				resources.getDrawable(R.drawable.crosshair));
+
 	}
 
 	@Override
@@ -37,6 +49,44 @@ public class QMap extends MapActivity {
 
 	@Override
 	protected boolean isRouteDisplayed() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean onDown(MotionEvent e) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
+			float velocityY) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void onLongPress(MotionEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX,
+			float distanceY) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void onShowPress(MotionEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public boolean onSingleTapUp(MotionEvent e) {
 		// TODO Auto-generated method stub
 		return false;
 	}
